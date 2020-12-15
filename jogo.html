@@ -1,0 +1,304 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Qual é o Animal?</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="font/material-icons.css"> 
+</head>
+<body>
+    <section class="inicio">
+        
+        <h1> Qual é o Animal? </h1>
+        <button>JOGAR</button>
+
+    </section>
+    <section class="tela2">
+        <header>
+
+            <p>
+                <span class="mticons">check_circle</span>
+                ACERTOS: <span class="acertos">0</span>
+            </p>
+            <p>
+                <span class="mticons">access_time</span>
+                [00:<span class="tempo">00]</span>
+            </p>
+        </header>
+        <div>
+
+            <p>
+                <span class="mticons play">play_circle_outline</span>
+                <span class="titulo"> QUE ANIMAL É ESSE? </span>
+            </p>
+            <ul>
+                <li><img class="errado" src="img/dog.png"></li>
+                <li><img class="errado" src="img/cow.png"></li>
+                <li><img class="certo" src="img/hen.png"></li>
+                <li><img class="certo" src="img/lion.png"></li>
+                <li><img class="errado" src="img/duck.png"></li>
+                <li><img class="errado" src="img/monkey.png"></li>
+                <li><img class="errado hint" src="img/beaver.png"></li>
+                <li><img class="errado" src="img/donkey.png"></li>
+                <li><img class="errado hint" src="img/polar-bear.png"></li>
+            </ul>
+        </div>
+        <footer>
+
+            <p>
+                <span class="mticons home">home</span>
+                <span class="mticons ajuda">lightbulb_outline</span>
+            </p>
+        </footer>
+    </section>
+    <section class="tela3">
+        <header>
+
+            <p>
+                <span class="mticons">check_circle</span>
+                ACERTOS: <span class="acertos2">0</span>
+            </p>
+            <p>
+                <span class="mticons">access_time</span>
+                [00:<span class="tempo2">00]</span>
+            </p>
+        </header>
+        <div>
+
+            <p>
+                <span class="mticons play">play_circle_outline</span>
+                <span class="titulo"> QUE ANIMAL É ESSE? </span>
+            </p>
+            <ul>
+                <li><img class="errado" src="img/walrus.png"></li>
+                <li><img class="certo" src="img/elephant.png"></li>
+                <li><img class="errado" src="img/zebra.png"></li>
+                <li><img class="errado hint" src="img/chick.png"></li>
+                <li><img class="errado hint" src="img/penguin.png"></li>
+                <li><img class="certo" src="img/cat.png"></li>
+                <li><img class="certo" src="img/pig.png"></li>
+                <li><img class="errado" src="img/snake.png"></li>
+                <li><img class="errado" src="img/flamingo.png"></li>
+            </ul>
+        </div>
+        <footer>
+
+            <p>
+                <span class="mticons home">home</span>
+                <span class="mticons ajuda">lightbulb_outline</span>
+            </p>
+        </footer>
+    </section>
+    <section class="tela4">
+        <header>
+
+            <h1> QUAL É O ANIMAL? </h1>
+        </header>
+        <div>
+
+            <h1> PARABÉNS!! </h1>
+
+                <h2> FASE 1 </h2>
+                    
+                <p>
+                    <span class="mticons">access_time</span>
+                    [00:<span class="tempo">00]</span>
+                </p>
+                <p>
+                    <span class="mticons">close</span>
+                    ERROS: <span class="erros1">0</span>
+                </p>
+                
+                <h2> FASE 2 </h2>
+                    
+                <p>
+                    <span class="mticons">access_time</span>
+                    [00:<span class="tempo2">00]</span>
+                </p>
+                <p>
+                    <span class="mticons">close</span>
+                    ERROS: <span class="erros2">0</span>
+                </p>
+        </div>
+        <footer>
+
+            <p>
+                <span class="mticons home">home</span>
+            </p>
+        </footer>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    let vrfmsc=0;
+    
+    var musica = new Audio('');
+    /* TELA 2 */
+    $("section.inicio button").on("click",function() {  
+        $("section.inicio").hide();
+        $("section.tela2").show();
+
+        if (vrfmsc == 0) {
+        
+            contagem1 = setInterval(function(){
+              
+                var tempo = parseInt($('section.tela2 span.tempo').text());
+                soma = tempo + 1;
+                if (soma < 10) {
+                    soma = "0" + soma;
+                };
+                $('span.tempo').text(soma + "]");
+                /*$('#tempo').text(soma);*/
+  		    }, 1000);
+        }
+        
+        else {
+            $('span.tempo').text(0 + "]");
+        }
+    });
+
+    $("section.tela2 span.play").on("click",function(){
+        musica1 = new Audio('musica/leao.mp3');
+        musica2 = new Audio('musica/galinha.mp3');
+        musica1.play();
+        musica2.play();
+    });
+
+    let contA = 0;
+    let contE = 0;
+
+    function passarTela3() {
+        $("section.tela2").hide();
+        $("section.tela3").show();
+            clearInterval(contagem1);
+            
+
+            if (vrfmsc == 0) {
+                contagem2 = setInterval(function(){
+                    var tempo2 = parseInt($('section.tela3 span.tempo2').text());
+                    soma2 = tempo2 + 1;
+                    if (soma2 < 10) {
+                        soma2 = "0" + soma2;
+                    };
+                    $('span.tempo2').text(soma2 + "]");
+                }, 1000);
+            } else {
+                $('span.tempo2').text(0 + "]");
+            }
+    }
+    $("section.tela2 ul img.certo").one("click",function(){
+      
+        musica3 = new Audio('musica/certo.mp3');
+        musica3.play();
+        var acertos = parseInt($('span.acertos').eq(0).text());
+            somaA = acertos + 1;
+            $('span.acertos').text(somaA);
+
+        contA++;
+        if (contA == 2) {
+            passarTela3();
+        }
+        $(this).css({opacity:0.5});
+    });
+
+    var erros1 = 0;
+    $("section.tela2 ul img.errado").one("click",function(){
+      
+        musica4 = new Audio('musica/errado.mp3');
+        musica4.play();
+        contE++;
+        if (contE == 2) {
+            passarTela3();
+        }
+        erros1 += 1;
+        /*$('#erros1').text(erros);*/
+        $(this).css({opacity:0.5});
+    });
+
+    $("section.tela2 footer span.ajuda").on("click",function(){
+      $("section.tela2 ul img.hint").css({opacity:0});
+    });
+    
+    /* TELA 3 */
+
+    $("section.tela3 span.play").on("click",function(){
+        musica5 = new Audio('musica/elefante.mp3');
+        musica6 = new Audio('musica/gato.mp3');
+        musica7 = new Audio('musica/porco.mp3');
+        musica5.play();
+        musica6.play();
+        musica7.play();
+    });
+
+    let contA2 = 0;
+    let contE2 = 0;
+    
+    function passarTela4() {
+        $("section.tela3").hide();
+        $("section.tela4").show();
+        clearInterval(contagem2);
+        $('span.erros1').text(erros1);
+        $('span.erros2').text(erros2);
+        musica8 = new Audio('musica/win.wav');
+        musica8.play();
+    }
+    $("section.tela3 ul img.certo").one("click",function(){
+      
+        musica3 = new Audio('musica/certo.mp3');
+        musica3.play();
+        var acertos2 = parseInt($('span.acertos2').eq(0).text());
+            somaA2 = acertos2 + 1;
+            $('span.acertos2').text(somaA2);
+
+        contA2++;
+        if (contA2 == 3) {
+            passarTela4();
+        }
+        $(this).css({opacity:0.5});
+    });
+
+    var erros2 = 0;
+    $("section.tela3 ul img.errado").one("click",function(){
+      
+        musica4 = new Audio('musica/errado.mp3');
+        musica4.play();
+        contE2++;
+        if (contE2 == 2) {
+            passarTela4();
+        }
+        erros2 += 1;
+        $(this).css({opacity:0.5});
+    });
+
+    $("section.tela3 footer span.ajuda").on("click",function(){
+      $("section.tela3 ul img.hint").css({opacity:0});
+    });
+
+    $("section footer span.home").on("click",function(){
+      $("section").hide();
+      $("section.inicio").show();
+      $('span.tempo').text("00]");
+      $('span.tempo2').text("00]");
+      $("section ul img").css({opacity:1});
+      clearInterval(contagem1);
+      clearInterval(contagem2);
+      $('span.acertos').text(0);
+      $('span.acertos2').text(0);
+      $('span.erros1').text(0);
+      $('span.erros2').text(0);
+      document.location.reload(true);
+    }); 
+
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
